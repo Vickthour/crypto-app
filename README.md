@@ -1,2 +1,0 @@
-# cryptoApp
-Cryptocurrency Application
