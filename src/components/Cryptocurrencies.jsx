@@ -5,6 +5,9 @@ import { Card, Row, Col, Input } from 'antd';
 
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import Loader from './Loader';
+import { current } from '@reduxjs/toolkit';
+
+
 
 const Cryptocurrencies = ({ simplified }) => {
   const count = simplified ? 10 : 100;
@@ -21,7 +24,6 @@ const Cryptocurrencies = ({ simplified }) => {
   }, [cryptosList, searchTerm]);
 
   if (isFetching) return <Loader />;
-
   return (
     <>
       {!simplified && (
@@ -41,7 +43,7 @@ const Cryptocurrencies = ({ simplified }) => {
             className="crypto-card"
             key={currency.uuid}
           >
-
+           
             {/* Note: Change currency.id to currency.uuid  */}
             <Link key={currency.uuid} to={`/crypto/${currency.uuid}`}>
               <Card
